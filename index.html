@@ -6,19 +6,35 @@
 </head>
 <body>
 
-<script src="https://giscus.app/client.js"
-        data-repo="tybuble94-web/notion-comments"
-        data-repo-id="R_kgDOS_5Yig"
-        data-category-id="DIC_kwDOS_5Yis4C_hH8"
-        data-mapping="title"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="preferred_color_scheme"
-        data-lang="vi"
-        crossorigin="anonymous"
-        async>
+<div id="giscus-container"></div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const chapter = params.get('chapter') || 'Trang chung';
+
+const script = document.createElement('script');
+script.src = 'https://giscus.app/client.js';
+
+script.setAttribute('data-repo', 'tybuble94-web/notion-comments');
+script.setAttribute('data-repo-id', 'R_kgDOS_5Yig');
+
+script.setAttribute('data-category', 'General');
+script.setAttribute('data-category-id', 'DIC_kwDOS_5Yis4C_hH8');
+
+script.setAttribute('data-mapping', 'specific');
+script.setAttribute('data-term', chapter);
+
+script.setAttribute('data-strict', '0');
+script.setAttribute('data-reactions-enabled', '1');
+script.setAttribute('data-emit-metadata', '0');
+script.setAttribute('data-input-position', 'top');
+script.setAttribute('data-theme', 'preferred_color_scheme');
+script.setAttribute('data-lang', 'vi');
+
+script.crossOrigin = 'anonymous';
+script.async = true;
+
+document.getElementById('giscus-container').appendChild(script);
 </script>
 
 </body>
