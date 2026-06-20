@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-<meta charset="utf-8">
-<title>Comments</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bình luận</title>
 </head>
 <body>
 
@@ -10,31 +11,35 @@
 
 <script>
 const params = new URLSearchParams(window.location.search);
-const chapter = params.get('chapter') || 'Trang chung';
 
-const script = document.createElement('script');
-script.src = 'https://giscus.app/client.js';
+const story = params.get("story") || "default";
+const chapter = params.get("chapter") || "1";
 
-script.setAttribute('data-repo', 'tybuble94-web/notion-comments');
-script.setAttribute('data-repo-id', 'R_kgDOS_5Yig');
+const discussionId = `${story}-chapter-${chapter}`;
 
-script.setAttribute('data-category', 'General');
-script.setAttribute('data-category-id', 'DIC_kwDOS_5Yis4C_hH8');
+const script = document.createElement("script");
+script.src = "https://giscus.app/client.js";
 
-script.setAttribute('data-mapping', 'specific');
-script.setAttribute('data-term', chapter);
+script.setAttribute("data-repo", "tybuble94-web/notion-comments");
+script.setAttribute("data-repo-id", "R_kgDOS_5Yig");
 
-script.setAttribute('data-strict', '0');
-script.setAttribute('data-reactions-enabled', '1');
-script.setAttribute('data-emit-metadata', '0');
-script.setAttribute('data-input-position', 'top');
-script.setAttribute('data-theme', 'preferred_color_scheme');
-script.setAttribute('data-lang', 'vi');
+script.setAttribute("data-category", "General");
+script.setAttribute("data-category-id", "DIC_kwDOS_5Yis4C_hH8");
 
-script.crossOrigin = 'anonymous';
+script.setAttribute("data-mapping", "specific");
+script.setAttribute("data-term", discussionId);
+
+script.setAttribute("data-strict", "0");
+script.setAttribute("data-reactions-enabled", "1");
+script.setAttribute("data-emit-metadata", "0");
+script.setAttribute("data-input-position", "top");
+script.setAttribute("data-theme", "preferred_color_scheme");
+script.setAttribute("data-lang", "vi");
+
+script.crossOrigin = "anonymous";
 script.async = true;
 
-document.getElementById('giscus-container').appendChild(script);
+document.getElementById("giscus-container").appendChild(script);
 </script>
 
 </body>
